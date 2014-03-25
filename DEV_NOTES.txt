@@ -1,0 +1,51 @@
+# Description
+
+Project name: Xarxacat
+Description: App for network for catalanassembly
+
+
+# Development environment
+
+Mac OS X Mavericks
+Python 2.7
+Homebrew
+Pip
+Virtualenv
+Virtualenvwrapper
+
+Install info:
+Configuring Mac OS X Mavericks 10.9
+http://hackercodex.com/guide/mac-osx-mavericks-10.9-configuration/
+
+Python Development Environment on Mac OS X Mavericks 10.9
+http://hackercodex.com/guide/python-development-environment-on-mac-osx/
+
+
+# Dependencies
+
+## Pip requirement files
+## url: http://www.pip-installer.org/en/latest/user_guide.html#requirements-files
+
+$ cd [project root directory]
+$ pip freeze > requirements.txt 
+
+
+# Virtualenvs
+
+## Virtualenvwrapper
+
+# -- Activate system
+$ export WORKON_HOME=~/Development/Virtualenvs
+$ source /usr/local/bin/virtualenvwrapper.sh
+
+# Databases
+
+## Multipledatabases
+
+$ ./manage.py migrate
+$ ./manage.py migrate --database=users
+https://docs.djangoproject.com/en/dev/topics/db/multi-db/
+
+## South
+$ python manage.py syncdb
+

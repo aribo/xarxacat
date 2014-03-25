@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
+    'members',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,7 +58,7 @@ WSGI_APPLICATION = 'xarxacat_site.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default':{  
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_xarxacat',
         'USER': 'xarxacat_user',
