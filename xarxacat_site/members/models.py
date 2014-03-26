@@ -19,7 +19,7 @@ class AncextAe(models.Model):
     ae_twitter = models.CharField(max_length=100, blank=True)
     ae_web = models.CharField(max_length=255, blank=True)
     class Meta:
-        managed = False
+        managed = True
         db_table = 'ancext_ae'
 
 class AncextAeCarrecs(models.Model):
@@ -27,7 +27,7 @@ class AncextAeCarrecs(models.Model):
     ae_carrec_nom = models.CharField(max_length=255)
     ae_carrec_descripcio = models.TextField()
     class Meta:
-        managed = False
+        managed = True
         db_table = 'ancext_ae_carrecs'
 
 class AncextMembres(models.Model):
@@ -54,7 +54,7 @@ class AncextMembres(models.Model):
     membre_carrec_ae_id = models.IntegerField(blank=True, null=True)
     membre_carrec_caec = models.IntegerField(blank=True, null=True)
     class Meta:
-        managed = False
+        managed = True
         db_table = 'ancext_membres'
 
 class AncextMembresNotes(models.Model):
@@ -62,7 +62,7 @@ class AncextMembresNotes(models.Model):
     membre_id = models.IntegerField()
     nota = models.CharField(max_length=255)
     class Meta:
-        managed = False
+        managed = True
         db_table = 'ancext_membres_notes'
 
 class AncextMembresTipus(models.Model):
@@ -70,7 +70,7 @@ class AncextMembresTipus(models.Model):
     extmem_type_name = models.CharField(max_length=255)
     extmem_type_description = models.CharField(max_length=255)
     class Meta:
-        managed = False
+        managed = True
         db_table = 'ancext_membres_tipus'
 
 class AncextProjectes(models.Model):
@@ -79,7 +79,7 @@ class AncextProjectes(models.Model):
     projecte_hashname = models.CharField(max_length=255)
     projecte_descripcio = models.TextField()
     class Meta:
-        managed = False
+        managed = True
         db_table = 'ancext_projectes'
 
 class AncextProjectesMembres(models.Model):
@@ -87,7 +87,7 @@ class AncextProjectesMembres(models.Model):
     projecte_id = models.IntegerField()
     membre_id = models.IntegerField()
     class Meta:
-        managed = False
+        managed = True
         db_table = 'ancext_projectes_membres'
 
 class RefCiutats(models.Model):
@@ -105,7 +105,7 @@ class RefCiutats(models.Model):
     cit_sinonims = models.CharField(db_column='cit_Sinonims', max_length=100) # Field name made lowercase.
     cit_cat = models.CharField(max_length=100)
     class Meta:
-        managed = False
+        managed = True
         db_table = 'ref_ciutats'
 
 class RefPaisos(models.Model):
@@ -139,12 +139,12 @@ class RefPaisos(models.Model):
     pai_neighbours = models.CharField(max_length=100)
     pai_status = models.IntegerField()
     class Meta:
-        managed = False
+        managed = True
         db_table = 'ref_paisos'
 
 class XarxacatUsers(models.Model):
     user_id = models.IntegerField(primary_key=True)
     user_name = models.CharField(max_length=255)
     class Meta:
-        managed = False
+        managed = True
         db_table = 'xarxacat_users'
