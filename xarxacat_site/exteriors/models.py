@@ -62,9 +62,9 @@ class Membre(models.Model):
     professio = models.CharField(max_length=255, blank=True)
     habilitats = models.CharField(max_length=255, blank=True)
     carrec_ae = models.ForeignKey(CarrecAe)
-    carrec_caec = models.CharField(max_length=255, blank=True)
+    carrec_caec = models.IntegerField()
     def __unicode__(self): 
-        return self.cognoms
+        return u'%s %s' % (self.nom, self.cognoms)
     
 
 
