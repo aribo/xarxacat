@@ -64,7 +64,7 @@ class Membre(models.Model):
     carrec_ae = models.ForeignKey(CarrecAe)
     carrec_caec = models.CharField(max_length=255, blank=True)
     def __unicode__(self): 
-        return self.nom.cognoms
+        return self.cognoms, self.nom
     
 
 
