@@ -1,6 +1,7 @@
 # -*- coding: utf8 -*- 
 
 from django.db import models
+from django.db.models import Q
 
 from cities_light.models import Country, City
 
@@ -51,17 +52,17 @@ class Membre_Tipus(models.Model):
 
 class Ae(models.Model):
 	# tipus = models.IntegerField(choices=AE_TIPUS)
-	nom = models.CharField(max_length=100, verbose_name="Nom", help_text="En la llengua originària del país")
-	nom_ca = models.CharField(max_length=100, verbose_name="Nom en català")
-	nom_en = models.CharField(max_length=100, verbose_name="Nom en anglès")
+	nom = models.CharField(max_length=50, verbose_name="Nom", help_text="En la llengua originària del país")
+	nom_ca = models.CharField(max_length=50, verbose_name="Nom en català")
+	nom_en = models.CharField(max_length=50, verbose_name="Nom en anglès")
 	estat =  models.ForeignKey(Country, verbose_name="Estat")
 	constitucio = models.IntegerField(choices=CONSTITUCIO, verbose_name="Constitució")
 	data_constitucio = models.DateField(blank=True, null=True, verbose_name="Data constitució")
 	activitat = models.BooleanField(default=True,verbose_name="Activitat", help_text="Indicar si l'AE està activa")
-	email = models.CharField(max_length=100)
-	facebook = models.CharField(max_length=255, blank=True)
-	twitter = models.CharField(max_length=100, blank=True)
-	web = models.CharField(max_length=255, blank=True)
+	email = models.CharField(max_length=50)
+	facebook = models.CharField(max_length=150, blank=True)
+	twitter = models.CharField(max_length=30, blank=True)
+	web = models.CharField(max_length=150, blank=True)
 	data_entrada = models.DateTimeField(#auto_now_add=True,
 	verbose_name="Data entrada")
 	data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
@@ -74,15 +75,15 @@ class Ae(models.Model):
 
 
 class Membre(models.Model):
-    nom = models.CharField(max_length=255)
-    cognoms = models.CharField(max_length=255)
+    nom = models.CharField(max_length=50)
+    cognoms = models.CharField(max_length=50)
     dni = models.CharField(max_length=20, blank=True, verbose_name="DNI")
     datanaixement = models.DateField(blank=True, null=True, verbose_name="Data de naixement")
-    email = models.CharField(max_length=255)
+    email = models.CharField(max_length=50)
     skype = models.CharField(max_length=50, blank=True)
     telefon = models.CharField(max_length=20, blank=True, verbose_name="Telèfon")
     ae = models.ForeignKey(Ae, blank=True, null=True, verbose_name="Assemblea Exterior")
-    codipostal = models.CharField(max_length=255, blank=True, verbose_name="Codi postal")
+    codipostal = models.CharField(max_length=20, blank=True, verbose_name="Codi postal")
     estat = models.ForeignKey(Country, verbose_name="Estat")
     poblacio_ext = ChainedForeignKey(City,
     	chained_field="estat",
@@ -90,7 +91,7 @@ class Membre(models.Model):
     	show_all=False,
     	auto_choose=True,
     	blank=True, null=True, related_name = 'poblacio_ext_set', verbose_name="Població a l'estranger", help_text="Població a l'estranger on el membre resideix normalment")
-    poblacio_cat = models.ForeignKey(City, limit_choices_to={'display_name': 921},
+    poblacio_cat = models.ForeignKey(City, limit_choices_to=Q(display_name__icontains='Catalonia'),
     	blank=True, null=True, related_name = 'poblacio_cat_set', verbose_name="Població a Catalunya", help_text="Població a Catalunya d'on el membre prové")
     tipus = models.ForeignKey(Membre_Tipus, verbose_name="Tipus", help_text="Tipus de membre")
     registre_anc = models.NullBooleanField(default=True,verbose_name="Registre ANC")
