@@ -41,6 +41,8 @@ INSTALLED_APPS = (
     'dashboard',
     'exteriors',
     'south',
+    'cities_light',
+    'smart_selects',
     
     
 )
