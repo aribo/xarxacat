@@ -97,6 +97,6 @@ STATIC_URL = '/static/'
 # Templates
 
 TEMPLATE_DIRS = (
-	PROJECT_PATH + '/templates/'
+	(os.path.join(PROJECT_DIR, 'templates'),
 	)
 
