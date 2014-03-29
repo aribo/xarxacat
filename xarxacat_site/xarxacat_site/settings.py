@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'south',
     'cities_light',
     'smart_selects',
+    'debug_toolbar',
     
     
 )
