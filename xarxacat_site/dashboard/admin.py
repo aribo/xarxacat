@@ -18,7 +18,7 @@ class MembreAdmin (admin.ModelAdmin):
 		list_filter = ['tipus','registre_anc','ae','estat']
 		list_display = ('nom','cognoms','ae','tipus','pagament')
 		search_fields = ['nom','cognoms','ae__nom_ca',]
-		readonly_fields = ('dataactualitzacio',)
+		readonly_fields = ('data_actualitzacio',)
 		actions = [export_as_csv_action("CSV Export", fields=['nom','cognoms','email','ae'])]
 		
 		
@@ -26,7 +26,7 @@ class MembreAdmin (admin.ModelAdmin):
 class AeAdmin (admin.ModelAdmin):
 		list_filter = ['constitucio','activitat']
 		list_display = ('nom_ca','constitucio','activitat', 'data_constitucio')
-		readonly_fields = ('dataactualitzacio',)
+		readonly_fields = ('data_actualitzacio',)
 		# = ("constitucio",)
 #		inlines = [MembreInline,]
 
