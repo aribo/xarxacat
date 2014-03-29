@@ -91,7 +91,7 @@ class Membre(models.Model):
     email = models.CharField(max_length=255)
     skype = models.CharField(max_length=50, blank=True)
     telefon = models.CharField(max_length=20, blank=True, verbose_name="Telèfon")
-    ae = models.ForeignKey(Ae, verbose_name="Assemblea Exterior")
+    ae = models.ForeignKey(Ae, blank=True, null=True, verbose_name="Assemblea Exterior")
     codipostal = models.CharField(max_length=255, blank=True, verbose_name="Codi postal")
     estat = models.ForeignKey(Country, verbose_name="Estat")
     poblacio_ext = ChainedForeignKey(City,
