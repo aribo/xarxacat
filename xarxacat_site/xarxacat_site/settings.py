@@ -99,4 +99,8 @@ STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (os.path.join(PROJECT_PATH, 'templates'),
 	)
+	
+# Degub toolbar
+
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
