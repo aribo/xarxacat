@@ -34,7 +34,7 @@ BINARI = (
 # Create your models here.
 
     	
-class CarrecAe(models.Model):
+class Carrec_Ae(models.Model):
     nom = models.CharField(max_length=255)
     descripcio = models.TextField()
     def __unicode__(self): 
@@ -43,7 +43,7 @@ class CarrecAe(models.Model):
         	ordering = ['id'] 
         	
         	
-class CarrecCaec(models.Model):
+class Carrec_Caec(models.Model):
     nom = models.CharField(max_length=255)
     descripcio = models.TextField()
     def __unicode__(self): 
@@ -51,7 +51,7 @@ class CarrecCaec(models.Model):
 	class Meta:
         	ordering = ['id']      	
     	
-class MembreTipus(models.Model):
+class Membre_Tipus(models.Model):
     nom = models.CharField(max_length=255)
     descripcio = models.CharField(max_length=255)
     def __unicode__(self): 
@@ -102,7 +102,7 @@ class Membre(models.Model):
     	blank=True, null=True, related_name = 'poblacio_ext_set', verbose_name="Població a l'estranger", help_text="Població a l'estranger on el membre resideix normalment")
     poblacio_cat = models.ForeignKey(City, limit_choices_to={'region_id': 921},
     	blank=True, null=True, related_name = 'poblacio_cat_set', verbose_name="Població a Catalunya", help_text="Població a Catalunya d'on el membre prové")
-    tipus = models.ForeignKey(MembreTipus, verbose_name="Tipus", help_text="Tipus de membre")
+    tipus = models.ForeignKey(Membre_Tipus, verbose_name="Tipus", help_text="Tipus de membre")
     registre_anc = models.IntegerField(choices=BINARI, verbose_name="Registre ANC")
     pagament = models.IntegerField(choices=STATUS_PAGAMENT, default="Corrent", verbose_name="Pagament de quotes")
     dataregistre_anc = models.DateField(blank=True, null=True, verbose_name="Data registre a l'ANC")
@@ -110,8 +110,8 @@ class Membre(models.Model):
     sectorial_anc = models.CharField(max_length=255, blank=True, verbose_name="Sectorial")
     professio = models.CharField(max_length=255, blank=True, verbose_name="Professió")
     habilitats = models.CharField(max_length=255, blank=True)
-    carrec_ae = models.ForeignKey(CarrecAe, blank=True, null=True, verbose_name="Càrrec a l'AE", help_text="Si el membre té un càrrec a la seva AE, si no deixar buit")
-    carrec_caec = models.ForeignKey(CarrecCaec, blank=True, null=True, verbose_name="Càrrec al CAEC",  help_text="Si el membre té un càrrec al Consell, si no deixar buit")
+    carrec_ae = models.ForeignKey(Carrec_Ae, blank=True, null=True, verbose_name="Càrrec a l'AE", help_text="Si el membre té un càrrec a la seva AE, si no deixar buit")
+    carrec_caec = models.ForeignKey(Carrec_Caec, blank=True, null=True, verbose_name="Càrrec al CAEC",  help_text="Si el membre té un càrrec al Consell, si no deixar buit")
     data_entrada = models.DateTimeField(auto_now_add=True, verbose_name="Data entrada")
     data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
     def __unicode__(self): 
