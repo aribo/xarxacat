@@ -25,7 +25,7 @@ class MembreAdmin (admin.ModelAdmin):
 
 class AeAdmin (admin.ModelAdmin):
 		list_filter = ['constitucio','activitat']
-		list_display = ('nom_ca','constitucio','activitat')
+		list_display = ('nom_ca','constitucio','activitat', 'data_constitucio')
 		# = ("constitucio",)
 #		inlines = [MembreInline,]
 
