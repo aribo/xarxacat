@@ -26,6 +26,7 @@ class MembreAdmin (admin.ModelAdmin):
 class AeAdmin (admin.ModelAdmin):
 		list_filter = ['constitucio','activitat']
 		list_display = ('nom_ca','constitucio','activitat', 'data_constitucio')
+		readonly_fields = ('dataactualitzacio',)
 		# = ("constitucio",)
 #		inlines = [MembreInline,]
 

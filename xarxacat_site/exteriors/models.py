@@ -63,6 +63,7 @@ class Ae(models.Model):
 	# tipus = models.IntegerField(choices=AE_TIPUS)
 	dataentrada = models.DateTimeField(#auto_now_add=True,
 	verbose_name="Data entrada")
+	dataactualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
 	nom = models.CharField(max_length=100, verbose_name="Nom", help_text="En la llengua originària del país")
 	nom_ca = models.CharField(max_length=100, verbose_name="Nom en català")
 	nom_en = models.CharField(max_length=100, verbose_name="Nom en anglès")
