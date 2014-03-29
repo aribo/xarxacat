@@ -27,6 +27,7 @@ class AeAdmin (admin.ModelAdmin):
 		list_filter = ['constitucio','activitat']
 		list_display = ('nom_ca','constitucio','activitat', 'data_constitucio','data_actualitzacio',)
 		readonly_fields = ('data_actualitzacio',)
+		actions = [export_as_csv_action("CSV Export", fields=['nom','email','constitucio','activitat','facebook','twitter','web'])]
 		# = ("constitucio",)
 #		inlines = [MembreInline,]
 
