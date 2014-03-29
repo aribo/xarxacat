@@ -15,19 +15,19 @@ AE_TIPUS = (
 	(3, 'Regional'),
 	)
 CONSTITUCIO = (
-	(11, 'Sí'),
-	(00, 'No'),
-	(01, 'En procés'),
+	(1, 'Sí'),
+	(0, 'No'),
+	(10, 'En procés'),
 	)
 
 STATUS_PAGAMENT = (
-	(11, 'Corrent'),
+	(1, 'Corrent'),
 	(00, 'Pendent'),
 	)
 
 BINARI = (
-	(11, 'Sí'),
-	(00, 'No'),
+	(1, 'Sí'),
+	(0, 'No'),
 	)
 	
 
