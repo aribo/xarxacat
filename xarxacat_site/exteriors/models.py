@@ -61,9 +61,6 @@ class MembreTipus(models.Model):
 
 class Ae(models.Model):
 	# tipus = models.IntegerField(choices=AE_TIPUS)
-	data_entrada = models.DateTimeField(#auto_now_add=True,
-	verbose_name="Data entrada")
-	data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
 	nom = models.CharField(max_length=100, verbose_name="Nom", help_text="En la llengua originària del país")
 	nom_ca = models.CharField(max_length=100, verbose_name="Nom en català")
 	nom_en = models.CharField(max_length=100, verbose_name="Nom en anglès")
@@ -75,6 +72,9 @@ class Ae(models.Model):
 	facebook = models.CharField(max_length=255, blank=True)
 	twitter = models.CharField(max_length=100, blank=True)
 	web = models.CharField(max_length=255, blank=True)
+	data_entrada = models.DateTimeField(#auto_now_add=True,
+	verbose_name="Data entrada")
+	data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
 	def __unicode__(self):
 		return self.nom_ca
 	class Meta:
@@ -84,8 +84,6 @@ class Ae(models.Model):
 
 
 class Membre(models.Model):
-    data_entrada = models.DateTimeField(auto_now_add=True, verbose_name="Data entrada")
-    data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
     nom = models.CharField(max_length=255)
     cognoms = models.CharField(max_length=255)
     dni = models.CharField(max_length=20, blank=True, verbose_name="DNI")
@@ -114,15 +112,17 @@ class Membre(models.Model):
     habilitats = models.CharField(max_length=255, blank=True)
     carrec_ae = models.ForeignKey(CarrecAe, blank=True, null=True, verbose_name="Càrrec a l'AE", help_text="Si el membre té un càrrec a la seva AE, si no deixar buit")
     carrec_caec = models.ForeignKey(CarrecCaec, blank=True, null=True, verbose_name="Càrrec al CAEC",  help_text="Si el membre té un càrrec al Consell, si no deixar buit")
+    data_entrada = models.DateTimeField(auto_now_add=True, verbose_name="Data entrada")
+    data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
     def __unicode__(self): 
         return u'%s %s' % (self.nom, self.cognoms)
-    search_fields = ['nom,cognoms']
+
    
 
 
 ###
 
-
+'''
 class NotaMembre(models.Model):
     membre_id = models.ForeignKey(Membre)
     nota = models.CharField(max_length=255)
@@ -148,3 +148,4 @@ class AncextProjectesMembres(models.Model):
     class Meta:
         managed = True
         db_table = 'ancext_projectes_membres'
+'''
