@@ -16,18 +16,8 @@ AE_TIPUS = (
 	)
 CONSTITUCIO = (
 	(1, 'Sí'),
-	(0, 'No'),
-	(10, 'En procés'),
-	)
-
-STATUS_PAGAMENT = (
-	(1, 'Corrent'),
-	(00, 'Pendent'),
-	)
-
-BINARI = (
-	(1, 'Sí'),
-	(0, 'No'),
+	(2, 'No'),
+	(3, 'En procés'),
 	)
 	
 
@@ -67,7 +57,7 @@ class Ae(models.Model):
 	estat =  models.ForeignKey(Country, verbose_name="Estat")
 	constitucio = models.IntegerField(choices=CONSTITUCIO, verbose_name="Constitució")
 	data_constitucio = models.DateField(blank=True, null=True, verbose_name="Data constitució")
-	activitat = models.IntegerField(choices=BINARI, verbose_name="Activitat", help_text="Indicar si l'AE està activa")
+	activitat = models.BooleanField(default=True,verbose_name="Activitat", help_text="Indicar si l'AE està activa")
 	email = models.CharField(max_length=100)
 	facebook = models.CharField(max_length=255, blank=True)
 	twitter = models.CharField(max_length=100, blank=True)
@@ -100,11 +90,11 @@ class Membre(models.Model):
     	show_all=False,
     	auto_choose=True,
     	blank=True, null=True, related_name = 'poblacio_ext_set', verbose_name="Població a l'estranger", help_text="Població a l'estranger on el membre resideix normalment")
-    poblacio_cat = models.ForeignKey(City, limit_choices_to={'region_id': 921},
+    poblacio_cat = models.ForeignKey(City, limit_choices_to={'display_name': 921},
     	blank=True, null=True, related_name = 'poblacio_cat_set', verbose_name="Població a Catalunya", help_text="Població a Catalunya d'on el membre prové")
     tipus = models.ForeignKey(Membre_Tipus, verbose_name="Tipus", help_text="Tipus de membre")
-    registre_anc = models.IntegerField(choices=BINARI, verbose_name="Registre ANC")
-    pagament = models.IntegerField(choices=STATUS_PAGAMENT, default="Corrent", verbose_name="Pagament de quotes")
+    registre_anc = models.NullBooleanField(default=True,verbose_name="Registre ANC")
+    pagament = models.NullBooleanField(default=False,verbose_name="Pagament de quotes")
     dataregistre_anc = models.DateField(blank=True, null=True, verbose_name="Data registre a l'ANC")
     numero_anc = models.CharField(max_length=255, blank=True, verbose_name="Número soci ANC")
     sectorial_anc = models.CharField(max_length=255, blank=True, verbose_name="Sectorial")
