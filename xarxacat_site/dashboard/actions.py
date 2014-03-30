@@ -31,7 +31,9 @@ def export_as_csv_action(description="Export selected objects as CSV file",
         # modifications to keep order in csv file output
         writer = csv.DictWriter(response,fields)
         writer.writeheader()
+            
         for obj in queryset:
+       		#writer.writerow([unicode(getattr(obj, field)).encode("utf-8","replace") for field in field_names])
              writer.writerow(dict(zip(fields,[unicode(getattr(obj, field)).encode("utf-8","replace") for field in fields])))
         return response
     export_as_csv.short_description = description
