@@ -63,7 +63,7 @@ class Ae(models.Model):
 	facebook = models.CharField(max_length=150, blank=True)
 	twitter = models.CharField(max_length=30, blank=True)
 	web = models.CharField(max_length=150, blank=True)
-	data_entrada = models.DateTimeField(#auto_now_add=True,
+	data_entrada = models.DateTimeField(auto_now_add=True,
 	verbose_name="Data entrada")
 	data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
 	def __unicode__(self):
