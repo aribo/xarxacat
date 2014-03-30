@@ -78,7 +78,7 @@ class Membre(models.Model):
     nom = models.CharField(max_length=50)
     cognoms = models.CharField(max_length=50)
     dni = models.CharField(max_length=20, blank=True, verbose_name="DNI")
-    datanaixement = models.DateField(blank=True, null=True, default="1970-01-01",verbose_name="Data de naixement")
+    datanaixement = models.DateField(blank=True, null=True,verbose_name="Data de naixement")
     email = models.CharField(max_length=50)
     skype = models.CharField(max_length=50, blank=True)
     telefon = models.CharField(max_length=20, blank=True, verbose_name="Telèfon")
