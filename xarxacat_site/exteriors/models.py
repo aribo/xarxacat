@@ -44,7 +44,7 @@ class Ae(models.Model):
 	nom = models.CharField(max_length=50, verbose_name="Nom", help_text="En la llengua originària del país")
 	nom_ca = models.CharField(max_length=50, verbose_name="Nom en català")
 	nom_en = models.CharField(max_length=50, verbose_name="Nom en anglès")
-	estat =  models.ForeignKey(Country, default=nom_en,verbose_name="Estat")
+	estat =  models.ForeignKey(Country, default=nom_en, verbose_name="Estat")
 	constitucio = models.BooleanField(verbose_name="Constitució")
 	data_constitucio = models.DateField(blank=True, null=True, verbose_name="Data constitució")
 	activitat = models.BooleanField(default=True,verbose_name="Activitat", help_text="Indicar si l'AE està activa")
