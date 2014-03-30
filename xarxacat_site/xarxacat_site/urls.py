@@ -11,6 +11,6 @@ urlpatterns = patterns('',
 	url(r'^dashboard/', include('dashboard.urls', namespace ="dashboard")), # dashboard URLS
 	url(r'^chaining/', include('smart_selects.urls')), # select chaining URLS (smart-selects)
 	
-	(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
+	#(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)), # admin URLS
 )

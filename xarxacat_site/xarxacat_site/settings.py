@@ -8,6 +8,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -33,7 +35,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
 	#'grappelli.dashboard',
-	'grappelli',
+	#'grappelli',
+	'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -93,6 +96,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '../public_html/static/'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -105,7 +109,7 @@ STATICFILES_FINDERS = (
 TEMPLATE_DIRS = (os.path.join(PROJECT_PATH, 'templates'),
 	)
 	
-TEMPLATE_CONTEXT_PROCESSORS = (
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
 )
@@ -116,6 +120,6 @@ DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 # GRAPPELLI
 
-GRAPPELLI_ADMIN_TITLE = "ANC Exterior - Xarxa"
-GRAPPELLI_INDEX_DASHBOARD = 'xarxacat_site.dashboard.CustomIndexDashboard'
+#GRAPPELLI_ADMIN_TITLE = "ANC Exterior - Xarxa"
+#GRAPPELLI_INDEX_DASHBOARD = 'xarxacat_site.dashboard.CustomIndexDashboard'
 
