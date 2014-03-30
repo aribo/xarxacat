@@ -77,8 +77,8 @@ class Ae(models.Model):
 class Membre(models.Model):
     nom = models.CharField(max_length=50)
     cognoms = models.CharField(max_length=50)
-    dni = models.CharField(max_length=20, blank=True, verbose_name="DNI")
-    data_naixement = models.DateField(blank=True, null=True, help_text="Format ANY-MES-DIA, 1971-07-24",verbose_name="Data de naixement")
+    dni = models.CharField(max_length=20, blank=True, verbose_name="DNI", help_text="NUMLLETRA, 56745301F")
+    data_naixement = models.DateField(blank=True, null=True,verbose_name="Data de naixement",help_text="ANY-MES-DIA, 1971-07-24")
     email = models.CharField(max_length=50)
     skype = models.CharField(max_length=50, blank=True)
     telefon = models.CharField(max_length=20, blank=True, verbose_name="Telèfon")
