@@ -36,7 +36,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
 	#'grappelli.dashboard',
 	#'grappelli',
-	#'dashboard',
+	
 	#'debug_toolbar',
 	'suit',
     'django.contrib.admin',
@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'exteriors',
+    'dashboard',
     'south',
     'cities_light',
     'smart_selects',
