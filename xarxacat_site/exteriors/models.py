@@ -69,7 +69,7 @@ class Membre(models.Model):
     dni = models.CharField(max_length=20, blank=True, verbose_name="DNI", help_text="NUMLLETRA, 56745301F")
     data_naixement = models.DateField(blank=True, null=True,verbose_name="Data de naixement", help_text="ANY-MES-DIA, 1971-07-24")
     email = models.CharField(max_length=50)
-    skype = models.CharField(max_length=50, blank=True)
+    skype = models.CharField(max_length=50, blank=True, null=True)
     telefon = models.CharField(max_length=20, blank=True, verbose_name="Telèfon")
     ae = models.ForeignKey(Ae, blank=True, null=True, verbose_name="Assemblea Exterior")
     codipostal = models.CharField(max_length=20, blank=True, verbose_name="Codi postal")

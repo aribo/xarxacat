@@ -1,3 +1,4 @@
+# imports
 from django.contrib import admin
 
 from actions import export_as_csv_action
@@ -6,10 +7,8 @@ from exteriors.models import Membre, Ae
 from xarxacat_site.models import XarxacatUsers 
 from cities_light.models import City
  
- 
 # functions
 
- 
 
 # Register your models here.
 
@@ -17,6 +16,8 @@ from cities_light.models import City
 #    	model = Membre
 #    	extra = 5
 #    	fields = ('nom','cognoms','email')
+
+
 
 class MembreAdmin (admin.ModelAdmin):
 		list_filter = ['tipus','registre_anc','ae','estat']
@@ -33,6 +34,7 @@ class MembreAdmin (admin.ModelAdmin):
 			if db_field.name == "ae":
 				kwargs["queryset"] = Ae.objects.order_by('-constitucio','nom_ca')
 			return super(MembreAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
+			
 		
 		
 
