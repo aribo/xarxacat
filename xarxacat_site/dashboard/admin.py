@@ -20,7 +20,7 @@ from cities_light.models import City
 
 class MembreAdmin (admin.ModelAdmin):
 		list_filter = ['tipus','registre_anc','ae','estat']
-		list_display = ('full_name','ae','tipus','pagament','data_actualitzacio',)
+		list_display = ('full_name','email','ae','tipus','pagament','data_actualitzacio',)
 		search_fields = ['nom','cognoms','ae__nom_ca',]
 		readonly_fields = ('data_actualitzacio',)
 		actions = [export_as_csv_action("CSV Export", fields=['nom','cognoms','email','ae'])]
