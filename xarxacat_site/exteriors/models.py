@@ -96,7 +96,7 @@ class Membre(models.Model):
     tipus = models.ForeignKey(Membre_Tipus, verbose_name="Tipus", help_text="Tipus de membre")
     registre_anc = models.NullBooleanField(default=True,verbose_name="Registre ANC")
     pagament = models.NullBooleanField(default=False,verbose_name="Pagament de quotes")
-    dataregistre_anc = models.DateField(blank=True, null=True, verbose_name="Data registre a l'ANC")
+    data_registre_anc = models.DateField(blank=True, null=True, verbose_name="Data registre a l'ANC", help_text="ANY-MES-DIA, 1971-07-24")
     numero_anc = models.CharField(max_length=10, blank=True, verbose_name="Número soci ANC")
     sectorial_anc = models.CharField(max_length=50, blank=True, verbose_name="Sectorial")
     professio = models.CharField(max_length=50, blank=True, verbose_name="Professió")
