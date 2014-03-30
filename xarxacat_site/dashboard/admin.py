@@ -29,6 +29,11 @@ class MembreAdmin (admin.ModelAdmin):
 			return ("%s %s" % (obj.nom, obj.cognoms))
 		full_name.short_description = 'Nom'
 		
+		def formfield_for_foreignkey(self, db_field, request, **kwargs):
+			if db_field.name == "ae":
+				kwargs["queryset"] = Ae.objects.order_by('-constitucio','nom_ca')
+			return super(MembreAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
+		
 		
 
 class AeAdmin (admin.ModelAdmin): 
