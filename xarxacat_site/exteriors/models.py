@@ -100,7 +100,7 @@ class Membre(models.Model):
     numero_anc = models.CharField(max_length=10, blank=True, verbose_name="Número soci ANC")
     sectorial_anc = models.CharField(max_length=50, blank=True, verbose_name="Sectorial")
     professio = models.CharField(max_length=50, blank=True, verbose_name="Professió")
-    habilitats = models.CharField(max_length=200, blank=True)
+    habilitats = models.CharField(max_length=200, blank=True, help_text="Separar per comes ex. Fotografia, Disseny gràfic")
     carrec_ae = models.ForeignKey(Carrec_Ae, blank=True, null=True, verbose_name="Càrrec a l'AE", help_text="Si el membre té un càrrec a la seva AE, si no deixar buit")
     carrec_caec = models.ForeignKey(Carrec_Caec, blank=True, null=True, verbose_name="Càrrec al CAEC",  help_text="Si el membre té un càrrec al Consell, si no deixar buit")
     data_entrada = models.DateTimeField(auto_now_add=True, verbose_name="Data entrada")
