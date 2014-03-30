@@ -1,3 +1,5 @@
+# -*- coding: utf8 -*- 
+
 # imports
 from django.contrib import admin
 
@@ -25,6 +27,15 @@ class MembreAdmin (admin.ModelAdmin):
 		search_fields = ['nom','cognoms','ae__nom_ca',]
 		readonly_fields = ('data_actualitzacio',)
 		actions = [export_as_csv_action("CSV Export", fields=['nom','cognoms','email','ae'])]
+		fieldsets = (
+        ('Informació bàsica', {
+            'fields': (('nom', 'cognoms'), 'email', 'ae', ('estat', 'codipostal'), ('tipus','pagament'))
+        }),
+        ('Dades extras', {
+            'classes': ('collapse',),
+            'fields': (('dni','data_naixement'),('skype','telefon'),'poblacio_ext','poblacio_cat',('registre_anc','data_registre_anc'),('numero_anc','sectorial_anc'),('professio','habilitats'),'carrec_ae','carrec_caec','data_actualitzacio')
+        }),
+		)
 		
 		def full_name(self,obj):
 			return ("%s %s" % (obj.nom, obj.cognoms))

@@ -92,8 +92,8 @@ class Membre(models.Model):
     sectorial_anc = models.CharField(max_length=50, blank=True, null=True, verbose_name="Sectorial")
     professio = models.CharField(max_length=50, blank=True, null=True, verbose_name="Professió")
     habilitats = models.CharField(max_length=200, blank=True, null=True, help_text="Separar per comes ex. Fotografia, Disseny gràfic")
-    carrec_ae = models.ManyToManyField(Carrec_Ae, blank=True, null=True, verbose_name="Càrrec a l'AE", help_text="Omplir si el membre té càrrec a l'AE.")
-    carrec_caec = models.ManyToManyField(Carrec_Caec, blank=True, null=True, verbose_name="Càrrec al CAEC",  help_text="Omplir si el membre té un càrrec al Consell.")
+    carrec_ae = models.ManyToManyField(Carrec_Ae, blank=True, null=True, verbose_name="Càrrec a l'AE" )
+    carrec_caec = models.ManyToManyField(Carrec_Caec, blank=True, null=True, verbose_name="Càrrec al CAEC")
     data_entrada = models.DateTimeField(auto_now_add=True, verbose_name="Data entrada")
     data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
     def __unicode__(self): 
