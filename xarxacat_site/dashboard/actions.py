@@ -27,10 +27,9 @@ def export_as_csv_action(description="Export selected objects as CSV file",
 
         writer = csv.writer(response)
         if header:
-            writer.writerow(list(field_names))
-         modifications to keep order in csv file output
+            writer.writerow(list(field_names))	
         
-        ## New system to have ordered fields 1/2 ## 
+        ## New system to have ordered fields 1/2 modifications to keep order in csv file output ## 
         #writer = csv.DictWriter(response,fields)
         #writer.writeheader()
             
