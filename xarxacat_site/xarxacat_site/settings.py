@@ -37,6 +37,7 @@ INSTALLED_APPS = (
 	#'grappelli.dashboard',
 	#'grappelli',
 	#'dashboard',
+	#'debug_toolbar',
 	'suit',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -48,7 +49,6 @@ INSTALLED_APPS = (
     'south',
     'cities_light',
     'smart_selects',
-    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
