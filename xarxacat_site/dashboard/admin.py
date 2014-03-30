@@ -50,11 +50,13 @@ class MembreAdmin (admin.ModelAdmin):
 			carrecs_ae = [p.nom for p in obj.carrec_ae.all()]
 			ae = ", ".join(carrecs_ae)
 			return ae
+		Carrec_ae.short_description = 'Carrec/s AE'
 		
 		def Carrec_caec(self, obj):
 			carrecs_caec = [p.nom for p in obj.carrec_caec.all()]
 			caec = ", ".join(carrecs_caec)
 			return caec
+		Carrec_caec.short_description = 'Carrec/s CAEC'
 			
 		
 		
