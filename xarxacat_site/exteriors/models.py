@@ -8,6 +8,8 @@ from cities_light.models import Country, City
 from smart_selects.db_fields import ChainedForeignKey 
 
 
+
+
 # Choices
 	
 
@@ -97,6 +99,31 @@ class Membre(models.Model):
     def __unicode__(self): 
         return u'%s %s' % (self.nom, self.cognoms)
  
+'''
+    dni = CharField()
+    data_naixement = DateField()
+    email = CharField()
+    skype = CharField()
+    telefon = CharField()
+    ae = IntegerField()
+    codipostal = CharField()
+    estat = IntegerField()
+    poblacio_ext = IntegerField()
+    poblacio_cat = IntegerField()
+    tipus = IntegerField()
+    registre_anc = IntegerField()
+    pagament = IntegerField()
+    data_registre_anc = DateField()
+    numero_anc = CharField()
+    sectorial_anc = CharField()
+    professio = CharField()
+    habilitats = CharField()
+    data_entrada = DateTimeField()
+    data_actualitzacio = DateTimeField()
+    '''
+	
+	
+
 
 
 ###

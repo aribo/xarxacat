@@ -20,8 +20,8 @@ from cities_light.models import City
 
 
 class MembreAdmin (admin.ModelAdmin):
-		list_filter = ['tipus','registre_anc','ae','estat']
-		list_display = ('full_name','email','ae','tipus','pagament','data_actualitzacio',)
+		list_filter = ['tipus','carrec_ae','registre_anc','ae','estat']
+		list_display = ('full_name','email','tipus', 'ae','Carrecs','pagament','data_actualitzacio',)
 		search_fields = ['nom','cognoms','ae__nom_ca',]
 		readonly_fields = ('data_actualitzacio',)
 		actions = [export_as_csv_action("CSV Export", fields=['nom','cognoms','email','ae'])]
@@ -34,6 +34,9 @@ class MembreAdmin (admin.ModelAdmin):
 			if db_field.name == "ae":
 				kwargs["queryset"] = Ae.objects.order_by('-constitucio','nom_ca')
 			return super(MembreAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
+		
+		def Carrecs(self, obj):
+			return "\n".join([p.nom for p in obj.carrec_ae.all()])
 			
 		
 		

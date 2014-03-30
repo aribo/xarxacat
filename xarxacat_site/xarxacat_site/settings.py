@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'south',
     'cities_light',
     'smart_selects',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
