@@ -9,17 +9,6 @@ from smart_selects.db_fields import ChainedForeignKey
 
 
 # Choices
-
-AE_TIPUS = (
-	(1, 'Nacional'),
-	(2, 'Local'),
-	(3, 'Regional'),
-	)
-CONSTITUCIO = (
-	(1, 'Sí'),
-	(2, 'No'),
-	(3, 'En procés'),
-	)
 	
 
 # Create your models here.
@@ -56,7 +45,7 @@ class Ae(models.Model):
 	nom_ca = models.CharField(max_length=50, verbose_name="Nom en català")
 	nom_en = models.CharField(max_length=50, verbose_name="Nom en anglès")
 	estat =  models.ForeignKey(Country, default=nom_en,verbose_name="Estat")
-	constitucio = models.IntegerField(choices=CONSTITUCIO, verbose_name="Constitució")
+	constitucio = models.BooleanField(verbose_name="Constitució")
 	data_constitucio = models.DateField(blank=True, null=True, verbose_name="Data constitució")
 	activitat = models.BooleanField(default=True,verbose_name="Activitat", help_text="Indicar si l'AE està activa")
 	email = models.CharField(max_length=50)
