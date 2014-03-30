@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+	#'grappelli.dashboard',
 	'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -112,4 +113,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 # Degub toolbar
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
+# GRAPPELLI
+
+GRAPPELLI_ADMIN_TITLE = "ANC Exterior - Xarxa"
+GRAPPELLI_INDEX_DASHBOARD = 'xarxacat_site.dashboard.CustomIndexDashboard'
 

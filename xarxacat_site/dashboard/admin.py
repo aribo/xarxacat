@@ -33,15 +33,11 @@ class MembreAdmin (admin.ModelAdmin):
 
 class AeAdmin (admin.ModelAdmin): 
 		list_filter = ['constitucio','activitat']
-		list_display = ('nom_ca','constitucio','activitat', 'data_constitucio','data_actualitzacio','num_members')
+		list_display = ('nom_ca','constitucio','activitat', 'data_constitucio','data_actualitzacio',)
 		readonly_fields = ('data_actualitzacio',)
 		actions = [export_as_csv_action("CSV Export", fields=['nom','email','constitucio','activitat','facebook','twitter','web'])]
 		# = ("constitucio",)
 #		inlines = [MembreInline,]
-
-		def num_members(self,obj):
-			return ("%s" % (obj.nom))
-		num_members.short_description = "Num"
 
 
 admin.site.register(Membre, MembreAdmin)
