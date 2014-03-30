@@ -5,7 +5,7 @@ from django.contrib import admin
 
 from actions import export_as_csv_action
 
-from exteriors.models import Membre, Ae
+from exteriors.models import Membre, Ae, Carrec_Ae, Carrec_Caec
 from xarxacat_site.models import XarxacatUsers 
 from cities_light.models import City
  
@@ -72,6 +72,8 @@ class AeAdmin (admin.ModelAdmin):
 
 admin.site.register(Membre, MembreAdmin)
 admin.site.register(Ae,AeAdmin)
+admin.site.register(Carrec_Ae)
+admin.site.register(Carrec_Caec)
 
 
 

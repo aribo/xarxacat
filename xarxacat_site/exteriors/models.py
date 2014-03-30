@@ -16,30 +16,37 @@ from smart_selects.db_fields import ChainedForeignKey
 # Create your models here.
 
     	
+
 class Carrec_Ae(models.Model):
     nom = models.CharField(max_length=255)
     descripcio = models.TextField()
     def __unicode__(self): 
     	return self.nom 
-	class Meta:
-        	ordering = ['id'] 
-        	
-        	
+    class Meta:
+		ordering = ['id']
+		verbose_name = "Carrec de les AE"
+		verbose_name_plural = "Carrecs de les AE"  
+
 class Carrec_Caec(models.Model):
     nom = models.CharField(max_length=255)
     descripcio = models.TextField()
     def __unicode__(self): 
     	return self.nom 
-	class Meta:
-        	ordering = ['id']      	
-    	
+    class Meta:
+		ordering = ['id']
+		verbose_name = "Carrec del CAEC"
+		verbose_name_plural = "Carrecs del CAEC"
+
 class Membre_Tipus(models.Model):
     nom = models.CharField(max_length=255)
     descripcio = models.CharField(max_length=255)
     def __unicode__(self): 
     	return self.nom
 	class Meta:
-        	ordering = ['id'] 
+		ordering = ['id']
+		verbose_name = "Tipus de membre"
+		verbose_name_plural = "Tipus de membre"
+		
 
 class Ae(models.Model):
 	# tipus = models.IntegerField(choices=AE_TIPUS)
