@@ -25,11 +25,14 @@ def export_as_csv_action(description="Export selected objects as CSV file",
         response = HttpResponse(mimetype='text/csv')
         response['Content-Disposition'] = 'attachment; filename=%s.csv' % unicode(opts).replace('.', '_')
 
-        writer = csv.writer(response)
-        if header:
-            writer.writerow(list(field_names))
+        #writer = csv.writer(response)
+        #if header:
+        #    writer.writerow(list(field_names))
+        # modifications to keep order in csv file output
+        writer = csv.DictWriter(response,fields)
+        writer.writeheader()
         for obj in queryset:
-            writer.writerow([unicode(getattr(obj, field)).encode("utf-8","replace") for field in field_names])
+             writer.writerow(dict(zip(fields,[unicode(getattr(obj, field)).encode("utf-8","replace") for field in fields])))
         return response
     export_as_csv.short_description = description
     return export_as_csv
