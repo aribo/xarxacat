@@ -22,7 +22,7 @@ from cities_light.models import City
 
 
 class MembreAdmin (admin.ModelAdmin):
-		list_filter = ['tipus','carrec_ae','registre_anc','ae','estat']
+		list_filter = ['tipus','carrec_ae', 'carrec_caec','registre_anc','ae','estat']
 		list_display = ('full_name','email','tipus', 'ae','Carrec_ae','Carrec_caec', 'pagament','data_actualitzacio',)
 		search_fields = ['nom','cognoms','ae__nom_ca','estat__name_ascii']
 		readonly_fields = ('data_actualitzacio',)
