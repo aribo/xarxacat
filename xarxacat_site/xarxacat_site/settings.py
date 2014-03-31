@@ -40,7 +40,7 @@ INSTALLED_APPS = (
 	#'grappelli.dashboard',
 	#'grappelli',
 	#'access_log',
-	
+    #'csvimport',	
 	#'debug_toolbar',
 	'suit',
     'django.contrib.admin',
@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'smart_selects',
     'django_extensions',
     'premsa',
+
     
 )
 
