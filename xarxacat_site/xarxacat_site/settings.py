@@ -1,3 +1,6 @@
+# -*- coding: utf8 -*- 
+
+
 """
 Django settings for xarxacat_site project.
 
@@ -36,6 +39,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
 	#'grappelli.dashboard',
 	#'grappelli',
+	#'access_log',
 	
 	#'debug_toolbar',
 	'suit',
@@ -52,6 +56,7 @@ INSTALLED_APPS = (
     'smart_selects',
     'django_extensions',
     'premsa',
+    
 )
 
 MIDDLEWARE_CLASSES = (
@@ -125,4 +130,11 @@ DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 #GRAPPELLI_ADMIN_TITLE = "ANC Exterior - Xarxa"
 #GRAPPELLI_INDEX_DASHBOARD = 'xarxacat_site.dashboard.CustomIndexDashboard'
+
+
+# Django suit
+
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'ANC Exteriors - Xarxa: Administració',
+}
 
