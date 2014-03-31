@@ -71,6 +71,9 @@ class Ae(models.Model):
 		verbose_name = "Assemblea Exterior"
 		verbose_name_plural = "Assemblees Exteriors"
 
+class GrupLocal(models.Model):
+	pass
+
 
 class Membre(models.Model):
     nom = models.CharField(max_length=50)
@@ -79,6 +82,7 @@ class Membre(models.Model):
     data_naixement = models.DateField(blank=True, null=True,verbose_name="Data de naixement", help_text="ANY-MES-DIA, 1971-07-24")
     email = models.CharField(max_length=50)
     skype = models.CharField(max_length=50, blank=True, null=True)
+    twitter = models.CharField(max_length=50, blank=True, null=True)
     telefon = models.CharField(max_length=20, blank=True, null=True, verbose_name="Telèfon")
     ae = models.ForeignKey(Ae, blank=True, null=True, verbose_name="Assemblea Exterior")
     codipostal = models.CharField(max_length=20, blank=True, null=True, verbose_name="Codi postal")
