@@ -58,3 +58,4 @@ class Notes(models.Model):
 	autor
 	data_entrada
 	data_actualitzacio
+'''
