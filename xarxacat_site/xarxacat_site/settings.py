@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'cities_light',
     'smart_selects',
     'django_extensions',
+    'premsa',
 )
 
 MIDDLEWARE_CLASSES = (

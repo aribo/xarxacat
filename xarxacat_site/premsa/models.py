@@ -1,3 +1,5 @@
+# -*- coding: utf8 -*- 
+
 from django.db import models
 
 # Create your models here.
@@ -5,37 +7,37 @@ from django.db import models
 '''
 
 class Mitja(models.Model):
-	nom = model.Charfield(max_length=50)
+	nom = models.CharField(max_length=50)
 	pais
 	tipus
 	idioma
-	email = model.Charfield(max_length=50)
+	email = models.CharField(max_length=50)
 	nota
 	data_entrada
 	data_actualitzacio
 	
 class Agencia(models.Model):
-	nom = model.Charfield(max_length=50)
+	nom = models.CharField(max_length=50)
 	pais
 	tipus
 	idioma
 	email
-	nota = model.Charfield(max_length=50)
+	nota = models.CharField(max_length=50)
 	data_entrada
 	data_actualitzacio
 
 class Periodista(models.Model):
-	nom = model.Charfield(max_length=50)
-	cognoms = = model.Charfield(max_length=100)
-	email = model.Charfield(max_length=50)
+	nom = models.CharField(max_length=50)
+	cognoms = models.CharField(max_length=100)
+	email = models.CharField(max_length=50)
 	tipus
 	pais_origen
 	idioma
-	telefon = model.Charfield(max_length=50)
-	twitter = model.Charfield(max_length=50)
-	skype = model.Charfield(max_length=50)
-	adreça
-	codipostal = model.Charfield(max_length=50)
+	telefon = models.CharField(max_length=50)
+	twitter = models.CharField(max_length=50)
+	skype = models.CharField(max_length=50)
+	adreca
+	codipostal = models.CharField(max_length=50)
 	pais
 	ciutat
 	agencia
@@ -46,7 +48,7 @@ class Periodista(models.Model):
 	data_actualitzacio
 	
 class Contacte(models.Model):
-	titol = model.Charfield(max_length=50)
+	titol = models.CharField(max_length=50)
 	descripcio
 	autor
 	resultat
@@ -58,4 +60,5 @@ class Notes(models.Model):
 	autor
 	data_entrada
 	data_actualitzacio
+
 '''

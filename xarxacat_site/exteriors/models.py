@@ -90,7 +90,7 @@ class Membre(models.Model):
     poblacio_ext = ChainedForeignKey(City,
     	chained_field="estat",
     	chained_model_field="country",
-    	show_all=True,
+    	show_all=False,
     	auto_choose=True,
     	blank=True, null=True, related_name = 'poblacio_ext_set', verbose_name="Població a l'estranger", help_text="Població a l'estranger on el membre resideix normalment")
     poblacio_cat = models.ForeignKey(City, limit_choices_to=Q(display_name__icontains='Catalonia'),

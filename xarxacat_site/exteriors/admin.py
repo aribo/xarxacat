@@ -56,7 +56,6 @@ class MembreAdmin (admin.ModelAdmin):
 			caec = ", ".join(carrecs_caec)
 			return caec
 		Carrec_caec.short_description = 'Carrec/s CAEC'
-			
 		
 		
 
