@@ -1,0 +1,8 @@
+*.pyc 
+
+local_settings.py 
+
+*.json 
+
+DEV_NOTES.txt
+CONFIG_APACHE_SERVER.txt
