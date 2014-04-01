@@ -6,6 +6,5 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-
 def index(request):
-    return HttpResponse("Benvinguts a la web d'exteriors.")
+    return HttpResponse("Bevingut/da a la xarxa de l'acció exterior. Accés a <a href=\"./admin\">Administració</a>")

@@ -50,7 +50,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'exteriors',
-    'dashboard',
+    'tauler',
     'south',
     'cities_light',
     'smart_selects',
