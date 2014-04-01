@@ -126,3 +126,9 @@ SUIT_CONFIG = {
     'ADMIN_NAME': 'ANC Exteriors - Xarxa: Administració',
 }
 
+# Local settings
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
