@@ -28,7 +28,7 @@ class MembreAdmin (admin.ModelAdmin):
 		actions = [export_as_csv_action("CSV Export", fields=['nom','cognoms','email','ae'])]
 		fieldsets = (
         ('Informació bàsica', {
-            'fields': (('nom', 'cognoms'), 'email', 'ae', ('estat', 'codipostal'), ('tipus','pagament')), ('registre_anc','data_registre_anc')
+            'fields': (('nom', 'cognoms'), 'email', 'ae', ('estat', 'codipostal'), ('tipus','pagament'),('registre_anc','data_registre_anc')), 
         }),
         ('Dades extras', {
             'classes': ('collapse',),
