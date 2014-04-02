@@ -118,6 +118,10 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '../public_html/media/'
+
 
 # Templates
 
