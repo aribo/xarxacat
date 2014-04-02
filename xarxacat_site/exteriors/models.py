@@ -105,7 +105,7 @@ class Membre(models.Model):
     habilitats = models.CharField(max_length=200, blank=True, null=True, help_text="Separar per comes ex. Fotografia, Disseny gràfic")
     carrec_ae = models.ManyToManyField(Carrec_Ae, blank=True, null=True, verbose_name="Càrrec a l'AE" )
     carrec_caec = models.ManyToManyField(Carrec_Caec, blank=True, null=True, verbose_name="Càrrec al CAEC")
-    actiu = models.BooleanField(default=True, verbose_name="Actiu", help_text = "Actiu: membre manté algún tipus de relació amb l'ANC")
+    actiu = models.BooleanField(default=True, verbose_name="Actiu")
     data_entrada = models.DateTimeField(auto_now_add=True, verbose_name="Data entrada")
     data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
     def __unicode__(self): 
