@@ -56,7 +56,7 @@ class Ae(models.Model):
 	estat =  models.ForeignKey(Country, verbose_name="Estat")
 	constitucio = models.BooleanField(verbose_name="Constitució")
 	data_constitucio = models.DateField(blank=True, null=True, verbose_name="Data constitució")
-	acta_constucio = models.FileField(upload_to='ae/actes_constitucio', blank = True, null = True)
+	acta_constitucio = models.FileField(upload_to='ae/actes_constitucio', blank = True, null = True, verbose_name="Acta constitució")
 	activitat = models.BooleanField(default=True,verbose_name="Activa")
 	email = models.CharField(max_length=50)
 	facebook = models.CharField(max_length=150, blank=True)

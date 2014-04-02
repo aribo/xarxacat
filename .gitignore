@@ -1,8 +1,6 @@
-*.pyc 
-
 local_settings.py
-
-*.json 
-
+/public_html/media/
 DEV_NOTES.txt
 CONFIG_APACHE_SERVER.txt
+*.pyc
+*.json
