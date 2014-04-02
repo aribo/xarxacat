@@ -1,10 +1,20 @@
 {% extends "admin/base.html" %}
 {% load i18n %}
 
-{% block title %}{{ title }} | {% trans 'Django site admin' %}{% endblock %}
+{% block title %}{{ title }} | {% trans 'ANC Exteriors - Xarxa : Administració' %}{% endblock %}
 
 {% block branding %}
 <h1 id="site-name">{% trans 'ANC Exteriors - Xarxa : Administració' %}</h1>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
+
+{# Footer links (left side) #}
+{% block footer_links %}
+<a href="/docs/" class="icon"><i class="icon-question-sign"></i>Documentation</a>
+{% endblock %}
+
+{# Footer copyright (right side) #}
+{% block copyright %}
+<a href="http://catalanassembly.org" target="_blank">ANC - Catalan Assembly</a>
+{% endblock %}

@@ -22,4 +22,6 @@ urlpatterns = patterns('',
     
     url(r'^exteriors/', include('exteriors.urls', namespace = "exteriors")), # exteriors URLS
     url(r'^tauler/', include('tauler.urls', namespace = "tauler")), # tauler URLS
+    
+    url(r'^accounts/', include('allauth.urls')), # django-allauth URLS
 )

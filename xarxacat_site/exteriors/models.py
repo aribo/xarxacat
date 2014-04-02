@@ -3,9 +3,9 @@
 from django.db import models
 from django.db.models import Q
 
+from smart_selects.db_fields import ChainedForeignKey
 from cities_light.models import Country, City
-
-from smart_selects.db_fields import ChainedForeignKey 
+ 
 
 
 
@@ -105,6 +105,7 @@ class Membre(models.Model):
     habilitats = models.CharField(max_length=200, blank=True, null=True, help_text="Separar per comes ex. Fotografia, Disseny gràfic")
     carrec_ae = models.ManyToManyField(Carrec_Ae, blank=True, null=True, verbose_name="Càrrec a l'AE" )
     carrec_caec = models.ManyToManyField(Carrec_Caec, blank=True, null=True, verbose_name="Càrrec al CAEC")
+    actiu = models.BooleanField(default=True, verbose_name="Actiu", help_text = "Indica si el membre té encara relació amb l'ANC")
     data_entrada = models.DateTimeField(auto_now_add=True, verbose_name="Data entrada")
     data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
     def __unicode__(self): 

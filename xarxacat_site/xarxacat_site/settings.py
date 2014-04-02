@@ -37,11 +37,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-	#'grappelli.dashboard',
-	#'grappelli',
-	#'access_log',
-    #'csvimport',	
-	#'debug_toolbar',
+	
+	# framework
+	
 	'suit',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,16 +47,37 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'exteriors',
-    'tauler',
+    'django.contrib.sites',
+    
+    # tools
     'south',
-    'cities_light',
     'smart_selects',
     'django_extensions',
-    'premsa',
-
+    
+    # data
+    'cities_light',
+    
+    # my apps
+    'exteriors',
+    'tauler',
+	'premsa',
+    
+    # security
+    ## sessions
+    'session_security',
+    
+    ## authentication
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    
+	### allauth social providers
+	'allauth.socialaccount.providers.google',
+    #'allauth.socialaccount.providers.twitter',
+    #'allauth.socialaccount.providers.facebook',
     
 )
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -108,16 +127,23 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_PATH, 'templates'),
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
+    
+    # allauth specific context processors
+    "allauth.account.context_processors.account",
+    "allauth.socialaccount.context_processors.socialaccount",
 )
 
-# Degub toolbar
 
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
+# Authentication
 
-# GRAPPELLI
+AUTHENTICATION_BACKENDS = (
 
-#GRAPPELLI_ADMIN_TITLE = "ANC Exterior - Xarxa"
-#GRAPPELLI_INDEX_DASHBOARD = 'xarxacat_site.dashboard.CustomIndexDashboard'
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
 
 
 # Django suit
@@ -132,3 +158,16 @@ try:
     from local_settings import *
 except ImportError:
     pass
+    
+
+# Sites
+SITE_ID = 2
+
+
+# auth and allauth settings
+
+LOGIN_REDIRECT_URL = '/admin'
+SOCIALACCOUNT_QUERY_EMAIL = True
+SOCIALACCOUNT_PROVIDERS = { 'google':
+        { 'SCOPE': ['https://www.googleapis.com/auth/userinfo.profile'],
+          'AUTH_PARAMS': { 'access_type': 'online' } }}

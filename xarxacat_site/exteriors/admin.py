@@ -5,8 +5,10 @@ from django.contrib import admin
 
 from actions import export_as_csv_action
 
-from exteriors.models import Membre, Ae, Carrec_Ae, Carrec_Caec
 from cities_light.models import City
+
+from .models import Membre, Ae, Carrec_Ae, Carrec_Caec
+
  
 # functions
 
