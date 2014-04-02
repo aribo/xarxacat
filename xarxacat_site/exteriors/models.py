@@ -96,8 +96,8 @@ class Membre(models.Model):
     poblacio_cat = models.ForeignKey(City, limit_choices_to=Q(display_name__icontains='Catalonia'),
     	blank=True, null=True, related_name = 'poblacio_cat_set', verbose_name="Població a Catalunya", help_text="Població a Catalunya d'on el membre prové")
     tipus = models.ForeignKey(Membre_Tipus, verbose_name="Tipus", help_text="Tipus de membre")
-    registre_anc = models.NullBooleanField(default=True, verbose_name="Registre ANC")
-    pagament = models.NullBooleanField(default=False, verbose_name="Pagament de quotes")
+    registre_anc = models.BooleanField(default=True, verbose_name="Registre ANC")
+    pagament = models.BooleanField(default=False, verbose_name="Pagament de quotes")
     data_registre_anc = models.DateField(blank=True, null=True, verbose_name="Data registre a l'ANC", help_text="ANY-MES-DIA, 1971-07-24")
     numero_anc = models.CharField(max_length=10, blank=True, null=True, verbose_name="Número soci ANC")
     sectorial_anc = models.CharField(max_length=50, blank=True, null=True, verbose_name="Sectorial")
