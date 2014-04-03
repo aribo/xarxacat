@@ -122,7 +122,7 @@ STATICFILES_FINDERS = (
 )
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media').replace('\\','/')
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir, 'public_html', 'media').replace('\\','/')
 
 
 # Templates
