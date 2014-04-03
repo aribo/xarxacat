@@ -67,12 +67,12 @@ INSTALLED_APPS = (
     'session_security',
     
     ## authentication
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+    #'allauth',
+    #'allauth.account',
+    #'allauth.socialaccount',
     
 	### allauth social providers
-	'allauth.socialaccount.providers.google',
+	#'allauth.socialaccount.providers.google',
     #'allauth.socialaccount.providers.twitter',
     #'allauth.socialaccount.providers.facebook',
     
@@ -118,10 +118,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
-# Media files
-MEDIA_URL = '/media/'
-MEDIA_ROOT = '../public_html/media/'
-
 
 # Templates
 
@@ -133,8 +129,8 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.contrib.auth.context_processors.auth',
     
     # allauth specific context processors
-    "allauth.account.context_processors.account",
-    "allauth.socialaccount.context_processors.socialaccount",
+    #'allauth.account.context_processors.account',
+    #'allauth.socialaccount.context_processors.socialaccount',
 )
 
 
@@ -146,7 +142,7 @@ AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
 
     # `allauth` specific authentication methods, such as login by e-mail
-    "allauth.account.auth_backends.AuthenticationBackend",
+    #"allauth.account.auth_backends.AuthenticationBackend",
 )
 
 
