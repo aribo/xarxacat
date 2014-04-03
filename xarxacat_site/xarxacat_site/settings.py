@@ -76,6 +76,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.twitter',
     'allauth.socialaccount.providers.facebook',
     
+     'lockdown', # to lock the whole site https://bitbucket.org/carljm/django-lockdown
 )
 
 
@@ -86,6 +87,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    'lockdown.middleware.LockdownMiddleware', # locks the entire site lockdown app
 )
 
 ROOT_URLCONF = 'xarxacat_site.urls'
@@ -171,3 +174,7 @@ SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_PROVIDERS = { 'google':
         { 'SCOPE': ['https://www.googleapis.com/auth/userinfo.profile'],
           'AUTH_PARAMS': { 'access_type': 'online' } }}
+          
+# Lockdown
+
+LOCKDOWN_FORM = 'lockdown.forms.AuthForm'
