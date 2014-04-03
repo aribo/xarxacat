@@ -64,7 +64,7 @@ INSTALLED_APPS = (
     
     # security
     ## sessions
-    'session_security',
+    #session_security',
     
     ## authentication
     #'allauth',
