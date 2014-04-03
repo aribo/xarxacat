@@ -1,10 +1,12 @@
 *.pyc
 *.json
 local_settings.py
-/public_html/media/
+/xarxacat/xarxacat_site/xarxacat_site/media/
 DEV_NOTES.txt
 CONFIG_APACHE_SERVER.txt
 
 *.pyc
+
+xarxacat_site/exteriors/admin.pyc
 
 xarxacat_site/exteriors/admin.pyc
