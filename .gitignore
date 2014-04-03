@@ -6,3 +6,5 @@ DEV_NOTES.txt
 CONFIG_APACHE_SERVER.txt
 
 *.pyc
+
+xarxacat_site/exteriors/admin.pyc
