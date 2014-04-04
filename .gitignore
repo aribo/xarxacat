@@ -22,3 +22,10 @@ xarxacat_site/xarxacat_site/urls.pyc
 xarxacat_site/exteriors/admin.pyc
 
 xarxacat_site/exteriors/admin.pyc
+
+
+*.pyc
+
+xarxacat_site/xarxacat_site/models.pyc
+
+xarxacat_site/exteriors/models.pyc

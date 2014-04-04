@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'cities_light',
     
     # my apps
+    'reference',
     'exteriors',
     'tauler',
 	'premsa',

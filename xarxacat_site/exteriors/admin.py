@@ -8,6 +8,9 @@ from actions import export_as_csv_action
 from cities_light.models import City
 
 from .models import Membre, Ae, Carrec_Ae, Carrec_Caec
+from reference.models import Idioma, PaisIdioma
+
+
 
  
 # functions
@@ -74,12 +77,19 @@ class AeAdmin (admin.ModelAdmin):
 		# = ("constitucio",)
 #		inlines = [MembreInline,]
 
+class PaisIdiomaAdmin (admin.ModelAdmin):
+		filter_horizontal = ('idioma',)
+
+
+
+# Model registration
 
 admin.site.register(Membre, MembreAdmin)
 admin.site.register(Ae,AeAdmin)
 admin.site.register(Carrec_Ae)
 admin.site.register(Carrec_Caec)
-
+admin.site.register(Idioma)
+admin.site.register(PaisIdioma, PaisIdiomaAdmin)
 
 # Log
 

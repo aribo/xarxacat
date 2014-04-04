@@ -5,6 +5,8 @@ from django.db.models import Q
 
 from smart_selects.db_fields import ChainedForeignKey
 from cities_light.models import Country, City
+
+from reference.models import Idioma	
  
 
 
