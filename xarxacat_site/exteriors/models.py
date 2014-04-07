@@ -13,7 +13,12 @@ from reference.models import Idioma
 
 
 # Choices
-	
+
+EMAIL_CONTACTE = (
+        ('P', 'Principal'),
+        ('A', 'Alternatiu'),
+    )
+
 
 # Create your models here.
 
@@ -83,7 +88,9 @@ class Membre(models.Model):
     cognoms = models.CharField(max_length=50)
     dni = models.CharField(max_length=20, blank=True, verbose_name="DNI", help_text="NUMLLETRA, 56745301F")
     data_naixement = models.DateField(blank=True, null=True,verbose_name="Data de naixement", help_text="ANY-MES-DIA, 1971-07-24")
-    email = models.CharField(max_length=50)
+    email_principal = models.CharField(max_length=50)
+    email_alternatiu = models.CharField(max_length=50)
+    email_contacte = models.ChoiceField(max_length=1, choices=EMAIL_CONTACTE)
     skype = models.CharField(max_length=50, blank=True, null=True)
     twitter = models.CharField(max_length=50, blank=True, null=True)
     telefon = models.CharField(max_length=20, blank=True, null=True, verbose_name="Telèfon")
