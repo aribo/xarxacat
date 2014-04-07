@@ -62,8 +62,11 @@ INSTALLED_APPS = (
     
     # my apps
     'xarxacat_site',
+    'core',
     'reference',
-    'exteriors',
+    'consell',
+    'assemblees',
+    'membres',
     'tauler',
 	'premsa',
     

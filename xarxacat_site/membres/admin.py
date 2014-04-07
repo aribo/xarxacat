@@ -4,7 +4,7 @@
 from django.contrib import admin
 from actions import export_as_csv_action
 from cities_light.models import City
-from .models import Membre, Ae, Carrec_Ae, Carrec_Caec
+from .models import Membre, Ae, Carrec_Ae, Carrec_Caec, EmailAe
 from reference.models import Idioma, PaisIdioma
 
 
@@ -71,6 +71,10 @@ class AeAdmin (admin.ModelAdmin):
 		# = ("constitucio",)
 #		inlines = [MembreInline,]
 
+class EmailAeAdmin (admin.ModelAdmin):
+		list_display = ('ae','email','tipus',)
+
+
 class PaisIdiomaAdmin (admin.ModelAdmin):
 		filter_horizontal = ('idioma',)
 
@@ -82,6 +86,7 @@ admin.site.register(Membre, MembreAdmin)
 admin.site.register(Ae,AeAdmin)
 admin.site.register(Carrec_Ae)
 admin.site.register(Carrec_Caec)
+admin.site.register(EmailAe,EmailAeAdmin)
 admin.site.register(Idioma)
 admin.site.register(PaisIdioma, PaisIdiomaAdmin)
 

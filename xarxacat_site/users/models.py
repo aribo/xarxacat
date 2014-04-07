@@ -1,8 +1,8 @@
-# -*- coding: utf8 -*- 
-
 from django.db import models
 
-class XarxacatUsers(models.Model):
+# Create your models here.
+
+class User(models.Model):
     nom = models.CharField(max_length=255)
     class Meta:
         ordering = ['nom']
