@@ -53,11 +53,15 @@ INSTALLED_APPS = (
     'south',
     'smart_selects',
     'django_extensions',
+    'documents', # for private documents https://github.com/yourlabs/django-documents
+    'autocomplete_light',
+    'genericm2m',
     
     # data
     'cities_light',
     
     # my apps
+    'xarxacat_site',
     'reference',
     'exteriors',
     'tauler',
@@ -156,7 +160,7 @@ AUTHENTICATION_BACKENDS = (
 # Django suit
 
 SUIT_CONFIG = {
-    'ADMIN_NAME': 'ANC Exteriors - Xarxa: Administració',
+    'ADMIN_NAME': 'ANC Exteriors - Xarxacat: Administració',
 }
 
 # Local settings
@@ -182,3 +186,6 @@ SOCIALACCOUNT_PROVIDERS = { 'google':
 # Lockdown
 
 LOCKDOWN_FORM = 'lockdown.forms.AuthForm'
+
+# Documents serve https://github.com/yourlabs/django-documents
+DOCUMENTS_UPLOAD_TO = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir, 'public_html', 'documents').replace('\\','/')

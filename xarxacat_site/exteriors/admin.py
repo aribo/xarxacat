@@ -2,19 +2,13 @@
 
 # imports
 from django.contrib import admin
-
 from actions import export_as_csv_action
-
 from cities_light.models import City
-
 from .models import Membre, Ae, Carrec_Ae, Carrec_Caec
 from reference.models import Idioma, PaisIdioma
 
 
-
- 
 # functions
-
 
 # Register your models here.
 
@@ -143,7 +137,7 @@ class StaffFilter(UserFilter):
 
 class LogEntryAdmin(admin.ModelAdmin):
 
-    date_hierarchy = 'action_time'
+#    date_hierarchy = 'action_time'
 
     readonly_fields = LogEntry._meta.get_all_field_names()
 

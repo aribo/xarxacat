@@ -5,7 +5,11 @@ local_settings.py
 DEV_NOTES.txt
 CONFIG_APACHE_SERVER.txt
 
-*.pyc
+xarxacat_site/*.pyc
+xarxacat_site/exteriors/*.pyc
+xarxacat_site/xarxacat_site/*.pyc
+
+
 
 xarxacat_site/exteriors/admin.pyc
 
@@ -24,8 +28,14 @@ xarxacat_site/exteriors/admin.pyc
 xarxacat_site/exteriors/admin.pyc
 
 
-*.pyc
-
 xarxacat_site/xarxacat_site/models.pyc
-
 xarxacat_site/exteriors/models.pyc
+xarxacat_site/exteriors/views.pyc
+
+public_html/documents/
+
+xarxacat_site/exteriors/views.pyc
+
+xarxacat_site/exteriors/views.pyc
+
+xarxacat_site/premsa/models.pyc

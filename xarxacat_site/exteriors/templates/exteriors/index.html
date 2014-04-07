@@ -1,0 +1,5 @@
+{% load documents_tags %}
+
+{% for document in exteriors|get_related_documents %}
+    {{ document }}
+{% endfor %}
