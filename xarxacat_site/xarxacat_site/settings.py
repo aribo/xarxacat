@@ -67,6 +67,7 @@ INSTALLED_APPS = (
     'consell',
     'assemblees',
     'membres',
+    'users',
     'tauler',
 	'premsa',
     

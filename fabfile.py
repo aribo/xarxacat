@@ -2,7 +2,18 @@ from fabric.api import *
 from fabric.colors import green, red
 
 
-# Simple git workflow, where you are merging local feature branches into remote branches.(from: http://www.yaconiello.com/blog/deploying-django-site-fabric/)
+
+
+
+# Workflow to schemamigration data apps (source: http://stackoverflow.com/questions/3166284/django-south-creating-schemamigration-for-more-than-one-app)
+
+APPS_TO_WATCH = ['assemblees','consell','membres', 'premsa']
+def migration():
+    for app in APPS_TO_WATCH:
+        local('./ manage.py schemamigration %s --auto' % app)
+
+
+# Simple git workflow, where you are merging local feature branches into remote branches.(source: http://www.yaconiello.com/blog/deploying-django-site-fabric/)
 
 def build_commit(warn_only=True):
     """Build a commit"""
