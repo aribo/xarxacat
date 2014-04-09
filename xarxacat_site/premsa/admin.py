@@ -22,6 +22,7 @@ class PeriodistaAdmin(admin.ModelAdmin):
 		def full_name(self,obj):
 			return ("%s %s" % (obj.nom, obj.cognoms))
 		full_name.short_description = 'Nom'
+		actions = [export_as_csv_action("CSV Export", fields=['nom','cognoms','email','pais','idioma'])]
 
 class Periodista_TipusAdmin(admin.ModelAdmin):
 	pass
