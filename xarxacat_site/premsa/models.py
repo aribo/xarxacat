@@ -8,6 +8,7 @@ from smart_selects.db_fields import ChainedForeignKey
 from cities_light.models import City, Country
 
 from core.actions import export_as_csv_action
+from core.models import TimeStampedModel
 
 from reference.models import Idioma
 
@@ -24,7 +25,7 @@ class Mitja_Tipus(models.Model):
 		verbose_name = "Tipus de mitja"
 		verbose_name_plural = "Tipus de mitjà"
 
-class Mitja(models.Model):
+class Mitja(TimeStampedModel):
 	nom = models.CharField(max_length=50)
 	tipus = models.ForeignKey(Mitja_Tipus, verbose_name="Tipus")
 	idioma = models.ManyToManyField(Idioma, verbose_name="Idioma")
@@ -40,8 +41,6 @@ class Mitja(models.Model):
     	auto_choose=True,
     	blank=True, null=True, verbose_name="Ciutat",) 
 	created_by = models.ForeignKey(User,verbose_name="Entrada per")
-	data_entrada = models.DateTimeField(auto_now_add=True, verbose_name="Data entrada")
-	data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
 	def __unicode__(self): 
 		return self.nom
 	class Meta:
@@ -59,7 +58,7 @@ class Agencia_Tipus(models.Model):
 		verbose_name = "Tipus d'agència"
 		verbose_name_plural = "Tipus de agència"
 
-class Agencia(models.Model):
+class Agencia(TimeStampedModel):
 	nom = models.CharField(max_length=50)
 	tipus = models.ForeignKey(Agencia_Tipus, verbose_name="Tipus")
 	idioma = models.ManyToManyField(Idioma, verbose_name="Idioma")
@@ -75,8 +74,6 @@ class Agencia(models.Model):
     	auto_choose=True,
     	blank=True, null=True, verbose_name="Ciutat",) 
 	created_by = models.ForeignKey(User,verbose_name="Entrada per")
-	data_entrada = models.DateTimeField(auto_now_add=True, verbose_name="Data entrada")
-	data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
 	def __unicode__(self): 
 		return self.nom
 	class Meta:
@@ -104,7 +101,7 @@ class Periodista_Carrec(models.Model):
 		verbose_name = "Càrrec de periodista"
 		verbose_name_plural = "Carrecs de periodista"
 
-class Periodista(models.Model):
+class Periodista(TimeStampedModel):
 	nom = models.CharField(max_length=50)
 	cognoms = models.CharField(max_length=100)
 	email = models.CharField(max_length=50)
@@ -128,8 +125,6 @@ class Periodista(models.Model):
 	agencia = models.ForeignKey(Agencia, verbose_name="Agència")
 	mitja = models.ForeignKey(Mitja, verbose_name="Mitjà")
 	created_by = models.ForeignKey(User, verbose_name="Entrada per")
-	data_entrada = models.DateTimeField(auto_now_add=True, verbose_name="Data entrada")
-	data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
 	def __unicode__(self):
 		return u'%s %s' % (self.nom, self.cognoms)
 	class Meta:
