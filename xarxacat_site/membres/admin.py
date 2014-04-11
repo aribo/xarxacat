@@ -2,7 +2,7 @@
 
 # imports
 from django.contrib import admin
-from actions import export_as_csv_action
+from core.actions import export_as_csv_action
 from cities_light.models import City
 
 from .models import Membre
@@ -15,7 +15,7 @@ from assemblees.models import Ae
 class MembreAdmin (admin.ModelAdmin):
 		list_filter = ['tipus','carrec_ae', 'carrec_caec','registre_anc','ae','estat']
 		list_display = ('full_name','email','tipus', 'ae','Carrec_ae','Carrec_caec', 'pagament','data_actualitzacio',)
-		search_fields = ['nom','cognoms','email', 'ae__nom_ca','estat__name_ascii']
+		search_fields = ['nom','cognoms','email', 'ae__nom_ca','estat__name']
 		readonly_fields = ('data_actualitzacio',)
 		actions = [export_as_csv_action("CSV Export", fields=['nom','cognoms','email','ae'])]
 		fieldsets = (

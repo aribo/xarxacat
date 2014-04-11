@@ -30,7 +30,7 @@ class Mitja(TimeStampedModel):
 	tipus = models.ForeignKey(Mitja_Tipus, verbose_name="Tipus")
 	idioma = models.ManyToManyField(Idioma, verbose_name="Idioma")
 	email = models.CharField(max_length=50, verbose_name="Email")
-	telefon = models.CharField(max_length=50, verbose_name="Telèfon")
+	telefon = models.CharField(max_length=50, verbose_name="Telèfon", null=True)
 	adreca = models.CharField(max_length=255, blank=True, null=True, verbose_name="Adreça")
 	codipostal = models.CharField(max_length=20, blank=True, null=True, verbose_name="Codi postal")
 	pais = models.ForeignKey(Country, verbose_name="País")
@@ -40,7 +40,7 @@ class Mitja(TimeStampedModel):
     	show_all=False,
     	auto_choose=True,
     	blank=True, null=True, verbose_name="Ciutat",) 
-	created_by = models.ForeignKey(User,verbose_name="Entrada per")
+	created_by = models.ForeignKey(User,verbose_name="Creat per", null=True, blank=True)
 	def __unicode__(self): 
 		return self.nom
 	class Meta:
@@ -63,7 +63,7 @@ class Agencia(TimeStampedModel):
 	tipus = models.ForeignKey(Agencia_Tipus, verbose_name="Tipus")
 	idioma = models.ManyToManyField(Idioma, verbose_name="Idioma")
 	email = models.CharField(max_length=50, verbose_name="Email")
-	telefon = models.CharField(max_length=50, verbose_name="Telèfon")
+	telefon = models.CharField(max_length=50, verbose_name="Telèfon", null=True)
 	adreca = models.CharField(max_length=255, blank=True, null=True, verbose_name="Adreça")
 	codipostal = models.CharField(max_length=20, blank=True, null=True, verbose_name="Codi postal")
 	pais = models.ForeignKey(Country, verbose_name="País")
@@ -73,7 +73,7 @@ class Agencia(TimeStampedModel):
     	show_all=False,
     	auto_choose=True,
     	blank=True, null=True, verbose_name="Ciutat",) 
-	created_by = models.ForeignKey(User,verbose_name="Entrada per")
+	created_by = models.ForeignKey(User,verbose_name="Creat per", null=True, blank=True)
 	def __unicode__(self): 
 		return self.nom
 	class Meta:
@@ -105,14 +105,14 @@ class Periodista(TimeStampedModel):
 	nom = models.CharField(max_length=50)
 	cognoms = models.CharField(max_length=100)
 	email = models.CharField(max_length=50)
-	tipus = models.ForeignKey(Periodista_Tipus, verbose_name="Tipus")
-	carrec = models.ForeignKey(Periodista_Carrec, verbose_name="Càrrec")
-	pais_origen = models.ForeignKey(Country, related_name = "pais_origen_set", verbose_name="País d'origen")
+	tipus = models.ForeignKey(Periodista_Tipus, verbose_name="Tipus", null=True, blank=True)
+	carrec = models.ForeignKey(Periodista_Carrec, verbose_name="Càrrec", null=True, blank=True)
+	pais_origen = models.ForeignKey(Country, related_name = "pais_origen_set", verbose_name="País d'origen", null=True, blank=True)
 	idioma = models.ManyToManyField(Idioma, verbose_name="Idioma")
-	telefon_fix = models.CharField(max_length=50, verbose_name="Telèfon fix")
-	telefon_mob = models.CharField(max_length=50, verbose_name="Telèfon mòbil")
-	twitter = models.CharField(max_length=50, verbose_name="Twitter")
-	skype = models.CharField(max_length=50, verbose_name="Skype")
+	telefon_fix = models.CharField(max_length=50, verbose_name="Telèfon fix", blank=True)
+	telefon_mob = models.CharField(max_length=50, verbose_name="Telèfon mòbil", blank=True)
+	twitter = models.CharField(max_length=50, verbose_name="Twitter", null=True, blank=True)
+	skype = models.CharField(max_length=50, verbose_name="Skype", null=True, blank=True)
 	adreca = models.CharField(max_length=255, blank=True, null=True, verbose_name="Adreça")
 	codipostal = models.CharField(max_length=20, blank=True, null=True, verbose_name="Codi postal")
 	pais = models.ForeignKey(Country, related_name = "pais_set", verbose_name="País")
@@ -121,10 +121,11 @@ class Periodista(TimeStampedModel):
     	chained_model_field="country",
     	show_all=False,
     	auto_choose=True,
-    	blank=True, null=True, verbose_name="Ciutat",) 
-	agencia = models.ForeignKey(Agencia, verbose_name="Agència")
-	mitja = models.ForeignKey(Mitja, verbose_name="Mitjà")
-	created_by = models.ForeignKey(User, verbose_name="Entrada per")
+    	blank=True, null=True, verbose_name="Ciutat",)
+	agencia = models.ForeignKey(Agencia, verbose_name="Agència", blank=True, null=True)
+	mitja = models.ForeignKey(Mitja, verbose_name="Mitjà", blank=True, null=True)
+	created_by = models.ForeignKey(User, verbose_name="Creat per", null=True, blank=True)
+	
 	def __unicode__(self):
 		return u'%s %s' % (self.nom, self.cognoms)
 	class Meta:
