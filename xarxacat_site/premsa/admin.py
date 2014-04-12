@@ -1,8 +1,10 @@
+# -*- coding: utf8 -*- 
+
 from django.contrib import admin
 
 from core.actions import export_as_csv_action
 
-from .models import Mitja, Agencia, Mitja_Tipus, Agencia_Tipus, Periodista, Periodista_Tipus, Periodista_Carrec
+from .models import Area,Mitja, Agencia, Mitja_Tipus, Agencia_Tipus, Periodista, Periodista_Tipus, Periodista_Carrec
 
 # Register your models here.
 
@@ -20,12 +22,23 @@ class Agencia_TipusAdmin(admin.ModelAdmin):
 
 class PeriodistaAdmin(admin.ModelAdmin):
 		list_filter = ['tipus','idioma','mitja', 'agencia','pais', ]
-		list_display = ('full_name','email','tipus', 'pais', '''createdby_firstname''',)
-		search_fields = ['created_by__first_name']
+		list_display = ('full_name','email','tipus', 'pais',)
+		search_fields = ['full_name','agencia','mitja','email']
 		
-		fieldsets = [
-		(None, { 'fields': [('nom','cognoms', 'email','pais', 'idioma')] } ),
-		]
+		fieldsets = (
+		('Informació bàsica', { 
+			'fields': ('nom','cognoms', 'email','pais_origen', 'idioma') 
+			}),
+		('Informació professional', {
+			'fields': ('tipus','carrec', 'area', 'agencia', 'mitja')
+			}),
+		('contacte', {
+			'fields': ('telefon_fix', 'telefon_mob', 'twitter', 'skype')
+			}),
+		('localització geogràfica', {
+			'fields': ('pais','ciutat','adreca','codipostal')
+			}),
+		)
 
 		''' to display the first name of the user as created by http://stackoverflow.com/questions/163823/can-list-display-in-a-django-modeladmin-display-attributes-of-foreignkey-field
 		def createdby_firstname(self, obj):
@@ -49,8 +62,11 @@ class Periodista_TipusAdmin(admin.ModelAdmin):
 class Periodista_CarrecAdmin(admin.ModelAdmin):
 	pass
 
+class AreaAdmin(admin.ModelAdmin):
+	pass
 
 
+admin.site.register(Area, AreaAdmin)
 admin.site.register(Mitja, MitjaAdmin)
 admin.site.register(Mitja_Tipus, Mitja_TipusAdmin)
 admin.site.register(Agencia, AgenciaAdmin)

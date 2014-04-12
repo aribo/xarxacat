@@ -15,6 +15,17 @@ from reference.models import Idioma
 
 # Create your models here.
 
+class Area(models.Model):
+	nom = models.CharField(max_length=50)
+	descripcio = models.CharField(max_length=255)
+	def __unicode__(self):
+		return self.nom
+	class Meta:
+		ordering = ['nom']
+		verbose_name = "Àrea"
+		verbose_name_plural = "Àrees"
+
+
 class Mitja_Tipus(models.Model):
 	nom = models.CharField(max_length=50)
 	descripcio = models.CharField(max_length=255)
@@ -106,6 +117,7 @@ class Periodista(TimeStampedModel):
 	cognoms = models.CharField(max_length=100)
 	email = models.CharField(max_length=50)
 	tipus = models.ForeignKey(Periodista_Tipus, verbose_name="Tipus", null=True, blank=True)
+	area = models.ForeignKey(Area, verbose_name="Àrea", null=True, blank=True)
 	carrec = models.ForeignKey(Periodista_Carrec, verbose_name="Càrrec", null=True, blank=True)
 	pais_origen = models.ForeignKey(Country, related_name = "pais_origen_set", verbose_name="País d'origen", null=True, blank=True)
 	idioma = models.ManyToManyField(Idioma, verbose_name="Idioma")
