@@ -1,3 +1,5 @@
+## Admin action for a generic "CSV Export" snippet https://djangosnippets.org/snippets/2369/
+
 import csv
 from django.http import HttpResponse
 
