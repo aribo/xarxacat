@@ -39,3 +39,9 @@ xarxacat_site/exteriors/views.pyc
 xarxacat_site/exteriors/views.pyc
 
 xarxacat_site/premsa/models.pyc
+
+*.pyc
+
+xarxacat_site/premsa/admin.pyc
+
+xarxacat_site/premsa/models.pyc
