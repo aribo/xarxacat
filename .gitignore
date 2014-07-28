@@ -3,6 +3,8 @@
 .git
 
 local_settings.py
+/migrations
+
 /xarxacat_site/xarxacat_site/media/
 DEV_NOTES.txt
 CONFIG_APACHE_SERVER.txt

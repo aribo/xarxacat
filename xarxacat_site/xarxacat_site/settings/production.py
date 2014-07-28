@@ -15,7 +15,7 @@ DATABASES = {
         'NAME': 'db_xarxacat',
         'USER': 'xarxacat_user',
         'PASSWORD': 'FreeCat2014',
-        'HOST': '10.129.173.154
+        'HOST': '10.129.173.154'
     }
 }
 
