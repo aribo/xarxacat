@@ -1,5 +1,7 @@
 *.pyc
 *.json
+.git
+
 local_settings.py
 /xarxacat_site/xarxacat_site/media/
 DEV_NOTES.txt
