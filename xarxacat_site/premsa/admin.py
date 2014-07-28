@@ -4,21 +4,38 @@ from django.contrib import admin
 
 from core.actions import export_as_csv_action
 
-from .models import Area,Mitja, Agencia, Mitja_Tipus, Agencia_Tipus, Periodista, Periodista_Tipus, Periodista_Carrec
+from .models import *
 
 # Register your models here.
 
+class MitjaNotaInline(admin.TabularInline):
+  model = Mitja_Nota
+  extra = 1
+
 class MitjaAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('nom',)
+	inlines = ( MitjaNotaInline, )
+	ordering = ('nom', )
+
 
 class Mitja_TipusAdmin(admin.ModelAdmin):
 	pass
 
+class AgenciaNotaInline(admin.TabularInline):
+	model = Agencia_Nota
+	extra = 1
+
 class AgenciaAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('nom',)
+	inlines = ( AgenciaNotaInline, )
+	ordering = ('nom', )
 
 class Agencia_TipusAdmin(admin.ModelAdmin):
 	pass
+
+class PeriodistaNotaInline(admin.TabularInline):
+	model = Periodista_Nota
+	extra = 1
 
 class PeriodistaAdmin(admin.ModelAdmin):
 		list_filter = ['tipus','idioma','mitja', 'agencia','pais', ]
@@ -39,6 +56,7 @@ class PeriodistaAdmin(admin.ModelAdmin):
 			'fields': ('pais','ciutat','adreca','codipostal')
 			}),
 		)
+		inlines = ( PeriodistaNotaInline, )
 
 		''' to display the first name of the user as created by http://stackoverflow.com/questions/163823/can-list-display-in-a-django-modeladmin-display-attributes-of-foreignkey-field
 		def createdby_firstname(self, obj):

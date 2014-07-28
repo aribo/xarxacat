@@ -34,7 +34,8 @@ class Membre_Tipus(models.Model):
 
 class Membre(models.Model):
     nom = models.CharField(max_length=50)
-    cognoms = models.CharField(max_length=50)
+    cognom_primer = models.CharField(max_length=50, verbose_name="Primer cognom")
+    cognom_segon = models.CharField(blank=True,max_length=50, verbose_name="Segon cognom")
     dni = models.CharField(max_length=20, blank=True, verbose_name="DNI", help_text="NUMLLETRA, 56745301F")
     data_naixement = models.DateField(blank=True, null=True,verbose_name="Data de naixement", help_text="ANY-MES-DIA, 1971-07-24")
     email = models.CharField(max_length=50, unique=True, db_index=True)
@@ -66,5 +67,13 @@ class Membre(models.Model):
     data_entrada = models.DateTimeField(auto_now_add=True, verbose_name="Data entrada")
     data_actualitzacio = models.DateTimeField(auto_now=True, verbose_name="Darrera actualització")
     def __unicode__(self): 
-        return u'%s %s' % (self.nom, self.cognoms)
+        return u'%s %s %s' % (self.nom, 'cognom_primer','cognom_segon')
 
+
+class Membre_Nota(models.Model):
+	nota = models.CharField(max_length=255)
+	membre = models.ForeignKey(Membre)
+	
+	class Meta:
+		verbose_name ="Nota de membre"
+		verbose_name_plural = "Notes de membre"

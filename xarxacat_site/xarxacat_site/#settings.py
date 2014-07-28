@@ -24,6 +24,7 @@ PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = 'z4t8t*94mo19fe2wut^dww*yo$7zgi46hx6-t#jv1yti@l(8u3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -32,6 +33,8 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
+
+
 
 
 # Application definition
@@ -52,10 +55,10 @@ INSTALLED_APPS = (
     # tools
     'south',
     'smart_selects',
-    'django_extensions',
-    'documents', # for private documents https://github.com/yourlabs/django-documents
-    'autocomplete_light',
-    'genericm2m',
+    #'django_extensions',
+    #'documents', # for private documents https://github.com/yourlabs/django-documents
+    #'autocomplete_light',
+    #'genericm2m',
     
     # data
     'cities_light',
@@ -76,16 +79,16 @@ INSTALLED_APPS = (
     #session_security',
     
     ## authentication
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+    #'allauth',
+    #'allauth.account',
+    #'allauth.socialaccount',
     
 	### allauth social providers
-	'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.facebook',
+	#'allauth.socialaccount.providers.google',
+    #'allauth.socialaccount.providers.twitter',
+    #'allauth.socialaccount.providers.facebook',
     
-     'lockdown', # to lock the whole site https://bitbucket.org/carljm/django-lockdown
+     #'lockdown', # to lock the whole site https://bitbucket.org/carljm/django-lockdown
 )
 
 
@@ -97,7 +100,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
-    'lockdown.middleware.LockdownMiddleware', # locks the entire site lockdown app
+    #'lockdown.middleware.LockdownMiddleware', # locks the entire site lockdown app
 )
 
 ROOT_URLCONF = 'xarxacat_site.urls'
@@ -144,8 +147,8 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.contrib.auth.context_processors.auth',
     
      #allauth specific context processors
-    'allauth.account.context_processors.account',
-    'allauth.socialaccount.context_processors.socialaccount',
+    #'allauth.account.context_processors.account',
+    #'allauth.socialaccount.context_processors.socialaccount',
 )
 
 
@@ -157,7 +160,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 
     #`allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
+    #'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 
@@ -181,7 +184,7 @@ SITE_ID = 2
 
 # auth and allauth settings
 
-LOGIN_REDIRECT_URL = '/admin'
+''' LOGIN_REDIRECT_URL = '/admin'
 SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_PROVIDERS = { 'google':
         { 'SCOPE': ['https://www.googleapis.com/auth/userinfo.profile'],
@@ -190,6 +193,8 @@ SOCIALACCOUNT_PROVIDERS = { 'google':
 # Lockdown
 
 LOCKDOWN_FORM = 'lockdown.forms.AuthForm'
+
+'''
 
 # Documents serve https://github.com/yourlabs/django-documents
 DOCUMENTS_UPLOAD_TO = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir, 'public_html', 'documents').replace('\\','/')

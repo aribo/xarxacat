@@ -25,6 +25,7 @@ class Area(models.Model):
 		verbose_name = "Àrea"
 		verbose_name_plural = "Àrees"
 
+# Mitjans
 
 class Mitja_Tipus(models.Model):
 	nom = models.CharField(max_length=50)
@@ -42,6 +43,7 @@ class Mitja(TimeStampedModel):
 	idioma = models.ManyToManyField(Idioma, verbose_name="Idioma")
 	email = models.CharField(max_length=50, verbose_name="Email")
 	telefon = models.CharField(max_length=50, verbose_name="Telèfon", null=True)
+	url = models.CharField(max_length=50, verbose_name="Web", blank=True)
 	adreca = models.CharField(max_length=255, blank=True, null=True, verbose_name="Adreça")
 	codipostal = models.CharField(max_length=20, blank=True, null=True, verbose_name="Codi postal")
 	pais = models.ForeignKey(Country, verbose_name="País")
@@ -52,12 +54,24 @@ class Mitja(TimeStampedModel):
     	auto_choose=True,
     	blank=True, null=True, verbose_name="Ciutat",) 
 	created_by = models.ForeignKey(User,verbose_name="Creat per", null=True, blank=True)
+	
 	def __unicode__(self): 
 		return self.nom
 	class Meta:
 		ordering = ['nom']
 		verbose_name = "Mitjà"
 		verbose_name_plural = "Mitjans"
+
+class Mitja_Nota(models.Model):
+	nota = models.CharField(max_length=255)
+	mitja = models.ForeignKey(Mitja)
+	
+	class Meta:
+		verbose_name ="Nota de mitjà"
+		verbose_name_plural = "Notes de mitjà"
+
+
+# Agències
 		
 class Agencia_Tipus(models.Model):
 	nom = models.CharField(max_length=50)
@@ -74,6 +88,7 @@ class Agencia(TimeStampedModel):
 	tipus = models.ForeignKey(Agencia_Tipus, verbose_name="Tipus")
 	idioma = models.ManyToManyField(Idioma, verbose_name="Idioma")
 	email = models.CharField(max_length=50, verbose_name="Email")
+	url = models.CharField(max_length=50, verbose_name="Web", blank=True)
 	telefon = models.CharField(max_length=50, verbose_name="Telèfon", null=True)
 	adreca = models.CharField(max_length=255, blank=True, null=True, verbose_name="Adreça")
 	codipostal = models.CharField(max_length=20, blank=True, null=True, verbose_name="Codi postal")
@@ -91,6 +106,17 @@ class Agencia(TimeStampedModel):
 		ordering = ['nom']
 		verbose_name = "Agència"
 		verbose_name_plural = "Agències"
+
+class Agencia_Nota(models.Model):
+	nota = models.CharField(max_length=255)
+	agencia = models.ForeignKey(Agencia)
+	
+	class Meta:
+		verbose_name ="Nota de agència"
+		verbose_name_plural = "Notes d'agències"
+
+
+# Periodistes
 
 class Periodista_Tipus(models.Model):
 	nom = models.CharField(max_length=50)
@@ -144,6 +170,14 @@ class Periodista(TimeStampedModel):
 		ordering = ['nom']
 		verbose_name = "Periodista"
 		verbose_name_plural = "Periodistes"
+
+class Periodista_Nota(models.Model):
+	nota = models.CharField(max_length=255)
+	periodista = models.ForeignKey(Periodista)
+	
+	class Meta:
+		verbose_name ="Nota de periodista"
+		verbose_name_plural = "Notes de periodista"
 
 '''
 

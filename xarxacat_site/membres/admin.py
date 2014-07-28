@@ -5,22 +5,26 @@ from django.contrib import admin
 from core.actions import export_as_csv_action
 from cities_light.models import City
 
-from .models import Membre
+from .models import *
 from assemblees.models import Ae
 
 
 # Register your models here.
 
+class MembreNotaInline(admin.TabularInline):
+	model = Membre_Nota
+	extra = 1
+
 
 class MembreAdmin (admin.ModelAdmin):
 		list_filter = ['tipus','carrec_ae', 'carrec_caec','registre_anc','ae','estat']
 		list_display = ('full_name','email','tipus', 'ae','Carrec_ae','Carrec_caec', 'pagament','data_actualitzacio',)
-		search_fields = ['nom','cognoms','email', 'ae__nom_ca','estat__name']
+		search_fields = ['nom','cognom_primer','cognom_segon','email', 'ae__nom_ca','estat__name']
 		readonly_fields = ('data_actualitzacio',)
-		actions = [export_as_csv_action("CSV Export", fields=['nom','cognoms','email','ae'])]
+		actions = [export_as_csv_action("CSV Export", fields=['numero_anc','nom','cognom_primer','cognom_segon','email','ae','tipus'])]
 		fieldsets = (
         ('Informació bàsica', {
-            'fields': (('nom', 'cognoms'), 'email', 'ae', ('tipus','pagament'),('registre_anc','data_registre_anc'),('numero_anc','sectorial_anc'),'activitat', 'data_actualitzacio'), 
+            'fields': ('nom',('cognom_primer','cognom_segon'), 'email', 'ae', ('tipus','pagament'),('registre_anc','data_registre_anc'),('numero_anc','sectorial_anc'),'activitat', 'data_actualitzacio'),
         }),
         ('Càrrecs', {
         	'fields': ('carrec_ae','carrec_caec'),
@@ -33,8 +37,10 @@ class MembreAdmin (admin.ModelAdmin):
         }),
 		)
 		
+		inlines = ( MembreNotaInline, )
+		
 		def full_name(self,obj):
-			return ("%s %s" % (obj.nom, obj.cognoms))
+			return ("%s %s %s" % (obj.nom, obj.cognom_primer, obj.cognom_segon))
 		full_name.short_description = 'Nom'
 		
 		def formfield_for_foreignkey(self, db_field, request, **kwargs):
